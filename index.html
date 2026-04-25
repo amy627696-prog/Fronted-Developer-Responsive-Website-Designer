@@ -1,32 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChatApp - Real-time Messaging</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<meta charset="UTF-8">
+<title>My Portfolio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #0f172a, #1e293b);
+  color: white;
+  overflow-x: hidden;
+}
+
+/* HEADER */
+header {
+  text-align: center;
+  padding: 60px 20px;
+  animation: fadeDown 1s ease-in-out;
+}
+
+header h1 {
+  font-size: 40px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header p {
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00c6ff;
+  transform: scale(1.1);
+}
+
+/* SECTIONS */
+section {
+  padding: 60px 10%;
+  animation: fadeUp 1s ease-in-out;
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  border-left: 4px solid #00c6ff;
+  padding-left: 10px;
+}
+
+/* ABOUT */
+.about {
+  background: rgba(255,255,255,0.05);
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.about:hover {
+  transform: translateY(-5px);
+}
+
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.05);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: 0.4s;
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,198,255,0.3);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.project-card p {
+  padding: 10px;
+}
+
+/* SERVICES */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.service-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.service-box:hover {
+  transform: scale(1.05);
+  background: rgba(0,198,255,0.1);
+}
+
+/* CONTACT */
+.contact {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+@keyframes fadeDown {
+  from {opacity: 0; transform: translateY(-30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
 </head>
+
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h1>💬 ChatApp</h1>
-        </div>
-        
-        <div class="chat-messages" id="chatMessages">
-            <div class="message received">
-                <div class="message-avatar">🤖</div>
-                <div class="message-content">
-                    <div>Hello! Welcome to ChatApp 🚀</div>
-                    <div class="message-time">Just now</div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="chat-input">
-            <input type="text" class="message-input" id="messageInput" placeholder="Type your message..." maxlength="500">
-            <button class="send-btn" id="sendBtn">➤</button>
-        </div>
+
+<header>
+  <h1>My Portfolio</h1>
+  <p>Web Developer | UI Designer | Freelancer</p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#services">Services</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about">
+    <p>
+      I am a passionate web developer who builds modern, responsive and user-friendly websites.
+      I specialize in HTML, CSS, JavaScript and React.
+    </p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="projects">
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600" />
+      <p>Modern Business Website</p>
     </div>
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600" />
+      <p>Mobile App UI</p>
+    </div>
+
+    <div class="project-card">
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" />
+      <p>Admin Dashboard</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="services">
+  <h2>Services</h2>
+
+  <div class="services">
+    <div class="service-box">Frontend Development</div>
+    <div class="service-box">UI/UX Design</div>
+    <div class="service-box">Web Applications</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+
+  <div class="contact">
+    <p>Let’s work together!</p>
+
+    <button onclick="emailMe()">Email Me</button>
+    <button onclick="callMe()">Call Me</button>
+  </div>
+</section>
+
+<footer>
+  © 2026 My Portfolio
+</footer>
+
+<script>
+function emailMe(){
+  window.location.href = "mailto:example@gmail.com";
+}
+
+function callMe(){
+  window.location.href = "tel:+923001234567";
+}
+</script>
+
 </body>
 </html>
